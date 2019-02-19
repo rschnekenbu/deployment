@@ -1,30 +1,20 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 install: true
-
 script:
-  - mvn clean verify -Pproduct -Dtycho.localArtifacts=ignore -Declipse.p2.mirrors=false
-
-# safelist
+- mvn clean verify -fartifact/pom.xml
 branches:
   only:
   - master
   - develop
-
+  
 deploy:
   provider: releases
-  overwrite: true
-  skip_cleanup: true
-  draft: true
   api_key:
-    secure: BkqAzl+bn6o58IvnBn/VW53oPSar7bsHZ4NiazlfJCla1oThisVpkwYQFjlVZzHQY6gOzb9Nbfp412C/FNz+J1Pelaim8qVgnh33VKJXT9E/KJLU+3wYJkhHTmBTv2YhSrbB9HQmLOoPWlNrd4drOOOhdSyRxXiwVW+girPsfUKz7PkcSNkGuJ26PavzWifYWK6Ub8cdqtukuK5tj872lX13K8fK/CYwjS0ncG3ELIdo2Zt6cdqSlbpRfZZUp37P2WUFwgLikoWiG9t/6KBqHwYAXGDHUoBxFC2sPQE7OCE4/EEhMDUkhCZEz7XUh/BQV+2m7k/VNrIEuuJNHV1WZmv63WG/CcrfHz6aTub7C7uQyhT1runiszh85Mrq9eaKWugh5Oq62e36gZUDsXCKiGY3CUTSZUzgR+CDVB3T7JbFS81105djgA1VFFWJ/IZ+VZOwL//ju/XQ0R5wC1peEAiV+ZI5RSY8sEJ/QcNAA9FA3zf2abTmxL7foRq7gf3rgNYaqn0xZNiXn8UvSn8tiMpGqaoHFGXLqikRtCGXqOquHPyTMmMMclH7iyv/AzWLPq3i5aY9MXxksbSjYH16P+PvP2SzDcYF+cGFVyLXUkT28q6r8yiXElnJ4e2+rzuRwfuFaV/bRu9kSHWRnM1pbhBXru9Y+fTy4FvgqhEytVo=
-  file: 
-  - releng/com.zeligsoft.po.posysml.product/target/products/com.zeligsoft.po.posysml.product-win32.win32.x86_64.zip
-  - releng/com.zeligsoft.po.posysml.product/target/products/com.zeligsoft.po.posysml.product-linux.gtk.x86_64.zip
-  - releng/com.zeligsoft.po.posysml.product/target/products/com.zeligsoft.po.posysml.product-macosx.cocoa.x86_64.tar.gz
+    secure: rpC73uILk6vWgeE/axh4BokfhY4GhZ9op2RzTXfAH0jzmq1wt60qTHOhW4prrIip0JVwJDyumaAPWmYVYkUXuHJh0dylAG2k/4Jic6ngYVzmhwSDEc97tguQsNSfUjl5vmA7MDMdcTHEZWExGpm1wHwDStLJBH/35aRQ2OQLU6Hh0aF3DmjQLUmMb8xHoIYiPPDI2Yv+JUaGWd4DBGIMvDTPdm7LHjdOCzVryJvnIMwx1fim20Ydcd6ijAf63pRd1n/CjRdNVRqn+e8GwsZRml3xmAyfnAntH9U29wgZ1gU0ZH3ojlB5zbutzlNpnznsofNIRxUAC9Hld1pDw/NsAYMmpHXRHKumgZjHDDAYB0ken/ECKQ/IQcf45/d/+/9tB6i5D1fuYq/wOVwHGJKmBVla7cUnbnofw0xO3JZuY+RYX36nNEHC4qfPBn1VM5ZrmGMQ4rEIF7h/1Fgevp95227wgmYuF23HDcooZsybnmuv+ghfItyjNp4ysq2dE2oC3OHfR7ED8jbZ2dwBQbdZmEZoLHPPS2+IbThs1nKx5HBUEHJtnQOIHOPhoTAbOhWEVVVVC5ue7FsGIlWvN0M3BLZFu573JKPUltDkS8qa6HO9LIrm1CZBRakMPzXeQcuZLRfx3CapnYZ2PLjRd3QOnsEQ83DFqI2gEFSFldgTfAE=
+  file_glob: true
+  file: "**.jar"
   on:
-    repo: eclipsesource/po-presto
-    all_branches: true
-    condition: $TRAVIS_BRANCH =~ ^master|develop$
-    
+    repo: rschnekenbu/deployment
+    branch: master
