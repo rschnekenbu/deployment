@@ -33,25 +33,3 @@ deploy:
     on:
       repo: rschnekenbu/deployment
       branch: master
-  - provider: releases
-    api_key:
-      secure: rpC73uILk6vWgeE/axh4BokfhY4GhZ9op2RzTXfAH0jzmq1wt60qTHOhW4prrIip0JVwJDyumaAPWmYVYkUXuHJh0dylAG2k/4Jic6ngYVzmhwSDEc97tguQsNSfUjl5vmA7MDMdcTHEZWExGpm1wHwDStLJBH/35aRQ2OQLU6Hh0aF3DmjQLUmMb8xHoIYiPPDI2Yv+JUaGWd4DBGIMvDTPdm7LHjdOCzVryJvnIMwx1fim20Ydcd6ijAf63pRd1n/CjRdNVRqn+e8GwsZRml3xmAyfnAntH9U29wgZ1gU0ZH3ojlB5zbutzlNpnznsofNIRxUAC9Hld1pDw/NsAYMmpHXRHKumgZjHDDAYB0ken/ECKQ/IQcf45/d/+/9tB6i5D1fuYq/wOVwHGJKmBVla7cUnbnofw0xO3JZuY+RYX36nNEHC4qfPBn1VM5ZrmGMQ4rEIF7h/1Fgevp95227wgmYuF23HDcooZsybnmuv+ghfItyjNp4ysq2dE2oC3OHfR7ED8jbZ2dwBQbdZmEZoLHPPS2+IbThs1nKx5HBUEHJtnQOIHOPhoTAbOhWEVVVVC5ue7FsGIlWvN0M3BLZFu573JKPUltDkS8qa6HO9LIrm1CZBRakMPzXeQcuZLRfx3CapnYZ2PLjRd3QOnsEQ83DFqI2gEFSFldgTfAE=
-    file_glob: true
-    file: "**.jar"
-    name: Develop - latest
-     prerelease: true
-    overwrite: true
-    target_commitish: $TRAVIS_COMMIT
-    body: Automatic build of $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
-    on:
-      repo: rschnekenbu/deployment
-      branch: develop
-  - provider: releases
-    api_key:
-      secure: rpC73uILk6vWgeE/axh4BokfhY4GhZ9op2RzTXfAH0jzmq1wt60qTHOhW4prrIip0JVwJDyumaAPWmYVYkUXuHJh0dylAG2k/4Jic6ngYVzmhwSDEc97tguQsNSfUjl5vmA7MDMdcTHEZWExGpm1wHwDStLJBH/35aRQ2OQLU6Hh0aF3DmjQLUmMb8xHoIYiPPDI2Yv+JUaGWd4DBGIMvDTPdm7LHjdOCzVryJvnIMwx1fim20Ydcd6ijAf63pRd1n/CjRdNVRqn+e8GwsZRml3xmAyfnAntH9U29wgZ1gU0ZH3ojlB5zbutzlNpnznsofNIRxUAC9Hld1pDw/NsAYMmpHXRHKumgZjHDDAYB0ken/ECKQ/IQcf45/d/+/9tB6i5D1fuYq/wOVwHGJKmBVla7cUnbnofw0xO3JZuY+RYX36nNEHC4qfPBn1VM5ZrmGMQ4rEIF7h/1Fgevp95227wgmYuF23HDcooZsybnmuv+ghfItyjNp4ysq2dE2oC3OHfR7ED8jbZ2dwBQbdZmEZoLHPPS2+IbThs1nKx5HBUEHJtnQOIHOPhoTAbOhWEVVVVC5ue7FsGIlWvN0M3BLZFu573JKPUltDkS8qa6HO9LIrm1CZBRakMPzXeQcuZLRfx3CapnYZ2PLjRd3QOnsEQ83DFqI2gEFSFldgTfAE=
-    file_glob: true
-    file: "**.jar"
-    body: Release of $TRAVIS_BRANCH ($TRAVIS_COMMIT) built by Travis CI on $(date +'%F %T %Z').
-    on:
-      repo: rschnekenbu/deployment
-      tags: true
