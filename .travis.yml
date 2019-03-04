@@ -20,7 +20,7 @@ branches:
 
 before_deploy:
   - git tag -f ${TRAVIS_BRANCH}-nightly
-  - git remote add gh https://${TRAVIS_REPO_SLUG%/*}:${GITHUB_API_KEY}@github.com/${TRAVIS_REPO_SLUG}.git
+  - git remote add gh https://${API_KEY_DEPLOY}@github.com/${TRAVIS_REPO_SLUG}.git
   - git push -f gh ${TRAVIS_BRANCH}-nightly
   - git remote remove gh
   
